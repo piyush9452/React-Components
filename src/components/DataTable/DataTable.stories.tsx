@@ -1,4 +1,5 @@
-import React from 'react';
+// React is used in JSX transformation but not directly referenced
+import { ComponentStory } from '@storybook/react';
 import DataTable, { DataTableProps, Column } from './DataTable';
 
 export default {
@@ -49,7 +50,7 @@ const columns: Column<User>[] = [
   },
 ];
 
-const Template = <T extends Record<string, any>>(args: DataTableProps<T>) => (
+const Template: ComponentStory<typeof DataTable> = (args: DataTableProps<Record<string, any>>) => (
   <div className="w-full max-w-4xl">
     <DataTable {...args} />
   </div>
@@ -58,26 +59,26 @@ const Template = <T extends Record<string, any>>(args: DataTableProps<T>) => (
 export const Default = Template.bind({});
 Default.args = {
   data: users,
-  columns,
+  columns: columns as Column<Record<string, any>>[],
 };
 
 export const Loading = Template.bind({});
 Loading.args = {
   data: [],
-  columns,
+  columns: columns as Column<Record<string, any>>[],
   loading: true,
 };
 
 export const Empty = Template.bind({});
 Empty.args = {
   data: [],
-  columns,
+  columns: columns as Column<Record<string, any>>[],
 };
 
 export const Sortable = Template.bind({});
 Sortable.args = {
   data: users,
-  columns,
+  columns: columns as Column<Record<string, any>>[],
 };
 Sortable.parameters = {
   docs: {
@@ -90,9 +91,9 @@ Sortable.parameters = {
 export const Selectable = Template.bind({});
 Selectable.args = {
   data: users,
-  columns,
+  columns: columns as Column<Record<string, any>>[],
   selectable: true,
-  onRowSelect: (selectedRows) => console.log('Selected rows:', selectedRows),
+  onRowSelect: (selectedRows: Record<string, any>[]) => console.log('Selected rows:', selectedRows),
 };
 Selectable.parameters = {
   docs: {

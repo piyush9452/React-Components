@@ -1,4 +1,4 @@
-import React from 'react';
+// React is used in JSX transformation but not directly referenced
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import InputField from './InputField';

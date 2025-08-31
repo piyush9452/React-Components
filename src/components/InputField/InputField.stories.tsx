@@ -1,4 +1,5 @@
-import React from 'react';
+// React is used in JSX transformation but not directly referenced
+import { ComponentStory } from '@storybook/react';
 import InputField, { InputFieldProps } from './InputField';
 
 export default {
@@ -19,7 +20,7 @@ export default {
   },
 };
 
-const Template = (args: InputFieldProps) => <InputField {...args} />;
+const Template: ComponentStory<typeof InputField> = (args: InputFieldProps) => <InputField {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
