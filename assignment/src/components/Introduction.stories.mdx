@@ -1,0 +1,60 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Introduction" />
+
+# React Component Library
+
+This is a collection of reusable React components built with TypeScript and styled with Tailwind CSS.
+
+## Components
+
+### InputField
+
+A versatile input field component with various states and variants:
+
+- **States**: normal, disabled, invalid, loading
+- **Variants**: filled, outlined, ghost
+- **Sizes**: sm, md, lg
+- **Features**: clear button, password toggle
+
+### DataTable
+
+A flexible data table component with the following features:
+
+- Display tabular data
+- Column sorting (asc/desc)
+- Row selection (single/multiple with checkbox)
+- Loading state
+- Empty state message
+- Responsive design
+
+## Usage
+
+Import components directly from their respective folders:
+
+```jsx
+import InputField from './components/InputField/InputField';
+import DataTable from './components/DataTable/DataTable';
+
+function App() {
+  return (
+    <div>
+      <InputField 
+        label="Username" 
+        placeholder="Enter your username" 
+        variant="outlined" 
+      />
+      
+      <DataTable 
+        data={users} 
+        columns={columns} 
+        selectable 
+      />
+    </div>
+  );
+}
+```
+
+## Accessibility
+
+All components are built with accessibility in mind, including proper ARIA attributes and keyboard navigation support.
